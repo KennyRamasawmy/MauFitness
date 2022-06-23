@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "867425078484",
+    "project_id": "mau-fitness",
+    "storage_bucket": "mau-fitness.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:867425078484:android:8996744ccbaa5892a9bf41",
+        "android_client_info": {
+          "package_name": "com.rpma.MauFitness"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "867425078484-o44jq2vrdjki9s2qba295v241gnbu6ck.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyADyZgM85v57yDmhuIp4Tw9Uv-pw9vWOfQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "867425078484-o44jq2vrdjki9s2qba295v241gnbu6ck.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
