@@ -39,6 +39,7 @@ dependencies:
   avatar_glow: ^1.2.0
   tilt_action: ^0.1.0
   flutter_tts: ^3.4.0
+  shake: ^2.1.0
   
   
   

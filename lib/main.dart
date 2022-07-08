@@ -17,7 +17,6 @@ import 'package:MauFitness/constants.dart';
 import 'package:MauFitness/screens/Welcome/welcome_screen.dart';
 import 'package:flutter/services.dart';
 
-import 'package:alan_voice/alan_voice.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();

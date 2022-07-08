@@ -5,12 +5,25 @@ import 'package:MauFitness/pages/challenges_rowA_Cardio.dart';
 import 'package:MauFitness/components/challengeseperator.dart';
 import 'package:MauFitness/components/textStyle.dart';
 import 'package:flutter_tts/flutter_tts.dart';
+import 'package:shake/shake.dart';
 
 class ChallengedetailACardio extends StatelessWidget {
   final ChallengeACardio challengeaCardio;
   ChallengedetailACardio(this.challengeaCardio);
 
   FlutterTts flutterTts = FlutterTts();
+  ShakeDetector detector;
+
+  @override
+  void initState() {
+    //super.initState();
+
+     detector = ShakeDetector.autoStart(
+      onPhoneShake: () {
+        flutterTts.speak(challengeaCardio.description);
+      }
+    );
+  }
 
   @override
   Widget build(BuildContext context) {

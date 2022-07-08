@@ -21,7 +21,7 @@ class _TiltActionDemoState extends State<MesoNutritionTipsScreen> {
   VoiceController _voiceController;
 
   String text1 =
-      'To move to the next categorys page directly: \n\n 1st Step: Pause the video \n \n 2nd Step: Turn your mobile phone screen backward 180° down\n( not more than 3.5 seconds)';
+      'To move to the next category page directly: \n\n 1st Step: Pause the video \n \n 2nd Step: Place your mobile phone screen forward on horizontal position (Quick move)\n( For 4 seconds) \n\n To move back to the previous category page directly: \n\n 1st Step: Pause the video \n \n 2nd Step: Place your mobile phone screen backward on horizontal position\n( For 4 seconds)';
 
   @override
   void initState() {
@@ -37,15 +37,22 @@ class _TiltActionDemoState extends State<MesoNutritionTipsScreen> {
     });
 
     tilt = Tilt(
-      eventWaitTimeMS: 3000,
+      eventWaitTimeMS: 4000,
+      offset: 0.01,
       onTiltUp: () {
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) {
+            return EndoNutritionTipsScreen();
+          }),
+        );
         setState(() {});
       },
       onTiltDown: () {
         Navigator.push(
           context,
           MaterialPageRoute(builder: (context) {
-            return EctoNutritionTipsScreen();
+            return EndoNutritionTipsScreen();
           }),
         );
         setState(() {
@@ -159,7 +166,7 @@ class _TiltActionDemoState extends State<MesoNutritionTipsScreen> {
                           child: AlertDialog(
                             title: Text("Note:"),
                             content: Text(
-                                "To move to the next category's page directly: \n\n 1st Step: Pause the video \n \n 2nd Step: Turn your mobile phone screen backward 180° down\n( not more than 3.5 seconds)",
+                                "To move to the next category page directly: \n\n 1st Step: Pause the video \n \n 2nd Step: Place your mobile phone screen forward on horizontal position (Quick move)\n( For 4 seconds) \n\n To move back to the previous category page directly: \n\n 1st Step: Pause the video \n \n 2nd Step: Place your mobile phone screen backward on horizontal position\n( For 4 seconds)",
                                 textAlign: TextAlign.center,
                                 style: TextStyle(
                                     fontSize: 12, fontWeight: FontWeight.w700)),
