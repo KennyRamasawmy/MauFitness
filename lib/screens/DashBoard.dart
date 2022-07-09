@@ -76,11 +76,11 @@ class _HomeScreenState extends State<HomeScreen> {
                   Align(
                     alignment: Alignment(1.30, 1.5),
                     child: Container(
-                      width: 70.0,
-                      height: 70.0,
+                      width: 60.0,
+                      height: 50.0,
                       child: Image.asset(
                         "assets/images/hamburger.png",
-                        width: size.width,
+                        height: 2,
                       ),
                     ),
                   ),
@@ -101,6 +101,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       );
                     },
                   ),
+                  Spacer(),
                   Expanded(
                     child: GridView.count(
                       crossAxisCount: 1,
