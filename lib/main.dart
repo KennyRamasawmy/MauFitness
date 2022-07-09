@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:MauFitness/Screens/Login/login_screen.dart';
+import 'package:MauFitness/Splashscreen.dart';
 import 'package:MauFitness/meditateHome.dart';
 import 'package:MauFitness/screens/Cardio.dart';
 import 'package:MauFitness/screens/DashBoard.dart';
@@ -73,40 +74,4 @@ class HomeScreen extends StatelessWidget {
               return LoginScreen();
             }),
       );
-}
-
-class SplashScreen extends StatefulWidget {
-  @override
-  _MysplashscreenState createState() => _MysplashscreenState();
-}
-
-class _MysplashscreenState extends State<SplashScreen> {
-  @override
-  void initState() {
-    super.initState();
-    Timer(
-        Duration(seconds: 3),
-        () => Navigator.pushReplacement(
-            context, MaterialPageRoute(builder: (context) => WelcomeScreen())));
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    //  Size size = MediaQuery.of(context).size;
-    return Container(
-      child: SvgPicture.asset(
-        "assets/icons/fitnesslogoMAUVE.svg",
-        //height: size.width * 0.1,
-      ),
-      decoration: BoxDecoration(
-          gradient: LinearGradient(
-        begin: Alignment.topRight,
-        end: Alignment.bottomLeft,
-        colors: [
-          Colors.white,
-          Color.fromARGB(255, 200, 161, 245),
-        ],
-      )),
-    );
-  }
 }
