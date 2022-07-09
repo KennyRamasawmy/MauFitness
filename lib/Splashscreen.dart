@@ -1,23 +1,5 @@
-import 'dart:async';
-
-import 'package:MauFitness/Screens/Login/login_screen.dart';
-import 'package:MauFitness/meditateHome.dart';
-import 'package:MauFitness/screens/Cardio.dart';
-import 'package:MauFitness/screens/DashBoard.dart';
-import 'package:MauFitness/screens/Lower_body.dart';
-import 'package:MauFitness/screens/Menu_Nutrition.dart';
-import 'package:MauFitness/screens/Nutrition.dart';
-import 'package:MauFitness/screens/Upper_body.dart';
-import 'package:MauFitness/screens/workout_board.dart';
-import 'package:firebase_auth/firebase_auth.dart';
-import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
-import 'package:MauFitness/constants.dart';
 import 'package:MauFitness/screens/Welcome/welcome_screen.dart';
-import 'package:flutter/services.dart';
-
-import 'package:flutter/material.dart';
 import 'package:introduction_screen/introduction_screen.dart';
 
 class SplashScreen extends StatelessWidget {
