@@ -101,7 +101,6 @@ class _HomeScreenState extends State<HomeScreen> {
                       );
                     },
                   ),
-                  Spacer(),
                   Expanded(
                     child: GridView.count(
                       crossAxisCount: 1,
