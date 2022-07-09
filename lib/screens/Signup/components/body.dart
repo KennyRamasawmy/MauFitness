@@ -20,9 +20,9 @@ class Body extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            SizedBox(height: size.height * 0.03),
+           
             Image.asset(
-              "assets/images/brain.png",
+              "assets/images/maufitness.png",
               height: size.height * 0.25,
             ),
             RoundedInputField(
@@ -58,9 +58,9 @@ class Body extends StatelessWidget {
                   showDialog<String>(
                     context: context,
                     builder: (BuildContext context) => AlertDialog(
-                      title: Text('\u{1F6A8} Warning \u{1F6A8}',
+                      title: Text('Warning',
                           textAlign: TextAlign.center),
-                      content: const Text('Please try again!'),
+                      content: const Text('Please try again!', textAlign: TextAlign.center),
                       actions: <Widget>[
                         TextButton(
                           onPressed: () => Navigator.pop(context, 'OK'),

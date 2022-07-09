@@ -79,7 +79,7 @@ class SplashScreen extends StatelessWidget {
         bodyTextStyle: TextStyle(fontSize: 22),
         descriptionPadding: EdgeInsets.all(16).copyWith(bottom: 0),
         imagePadding: EdgeInsets.only(top: 100),
-        pageColor:  Color.fromARGB(255, 170, 255, 159),
+        pageColor:  Color.fromARGB(255, 141, 202, 141),
   );
   PageDecoration getPageDecoration2() => PageDecoration(
         titlePadding: EdgeInsets.only(top: 50),
