@@ -77,7 +77,7 @@ class LowerBody extends StatelessWidget {
       body: SingleChildScrollView(
         child: SafeArea(
           child: Container(
-            padding: EdgeInsets.only(top: 20.0),
+            //padding: EdgeInsets.only(top: 20.0),
             child: Column(
               children: <Widget>[
                 Align(

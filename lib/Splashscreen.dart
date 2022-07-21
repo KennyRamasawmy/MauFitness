@@ -71,7 +71,7 @@ class SplashScreen extends StatelessWidget {
         bodyTextStyle: TextStyle(fontSize: 22),
         descriptionPadding: EdgeInsets.all(16).copyWith(bottom: 0),
         imagePadding: EdgeInsets.only(top: 100),
-        pageColor:  Color.fromARGB(255, 255, 158, 113),
+        pageColor:  Color(0xFF26C6DA),
   );
   PageDecoration getPageDecoration1() => PageDecoration(
         titlePadding: EdgeInsets.only(top: 50),
@@ -79,7 +79,8 @@ class SplashScreen extends StatelessWidget {
         bodyTextStyle: TextStyle(fontSize: 22),
         descriptionPadding: EdgeInsets.all(16).copyWith(bottom: 0),
         imagePadding: EdgeInsets.only(top: 100),
-        pageColor:  Color.fromARGB(255, 141, 202, 141),
+        //pageColor:  Color.fromARGB(255, 141, 202, 141),
+        pageColor:  Color(0xFFA5D6A7),
   );
   PageDecoration getPageDecoration2() => PageDecoration(
         titlePadding: EdgeInsets.only(top: 50),

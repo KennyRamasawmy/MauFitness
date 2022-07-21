@@ -154,46 +154,6 @@ class tipping extends StatelessWidget {
                   SizedBox(
                     height: 20,
                   ),
-                  Text("BMI Advisor",
-                      style: TextStyle(
-                          fontSize: 24,
-                          color: Color.fromARGB(255, 0, 0, 0),
-                          fontWeight: FontWeight.w700)),
-                  SizedBox(
-                    height: 20,
-                  ),
-                  GestureDetector(
-                    child: Container(
-                        child: Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: Text("BMI",
-                              style: TextStyle(
-                                  fontSize: 27,
-                                  color: Color.fromARGB(255, 255, 255, 255),
-                                  fontWeight: FontWeight.w700)),
-                        ), // button text
-                        width: 1200,
-                        height: 200,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.all(Radius.circular(20)),
-                          color: Colors.black,
-                          image: DecorationImage(
-                              image: AssetImage("assets/images/mesomorph.jpg"),
-                              fit: BoxFit.cover),
-                        )),
-                    onTap: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (context) {
-                          //return SpeechScreen();
-                          return Demo();
-                        }),
-                      );
-                    },
-                  ),
-                  SizedBox(
-                    height: 20,
-                  ),
                 ],
               ),
             ),

@@ -5,11 +5,11 @@ import 'package:MauFitness/pages/activityTimerUpper2.dart';
 import 'package:MauFitness/pages/activityTimerUpper3.dart';
 import 'package:flutter/material.dart';
 
-class ActivityDetail extends StatelessWidget {
+class ActivityDetailU extends StatelessWidget {
   final String tag;
   final Exercise exercise;
 
-  ActivityDetail({
+  ActivityDetailU({
     @required this.exercise,
     @required this.tag,
   });
@@ -149,14 +149,12 @@ class ActivityDetail extends StatelessWidget {
                               ),
                               NextStep(
                                 image: 'assets/images/military press.jpg',
-                                title:
-                                    'Military Press',
+                                title: 'Military Press',
                                 minutes: 2,
                               ),
                               NextStep(
                                 image: 'assets/images/Lats pull down.jpg',
-                                title:
-                                    'Lats Pull Down',
+                                title: 'Lats Pull Down',
                                 minutes: 2,
                               ),
                               NextStep(
@@ -169,7 +167,8 @@ class ActivityDetail extends StatelessWidget {
                                 title: 'Leg  Raise',
                                 minutes: 2,
                               ),
-                            ] else if (this.exercise.title == "Intermediate") ...[
+                            ] else if (this.exercise.title ==
+                                "Intermediate") ...[
                               NextStep(
                                 image: 'assets/images/dumbell press.jpg',
                                 title: 'Dumbell Press',
@@ -195,7 +194,6 @@ class ActivityDetail extends StatelessWidget {
                                 title: 'Side Crunch',
                                 minutes: 5,
                               ),
-                            
                               NextStep(
                                 image: 'assets/images/dips tricep.jpg',
                                 title: 'Bodyweight Dips',
@@ -207,11 +205,11 @@ class ActivityDetail extends StatelessWidget {
                                 minutes: 7,
                               ),
                               NextStep(
-                                image: 'assets/images/plank abs.jpg',
+                                image: 'assets/images/planks abs.jpg',
                                 title: 'Plank',
                                 minutes: 5,
                               ),
-                              ] else ...[
+                            ] else ...[
                               NextStep(
                                 image: 'assets/images/incline bench press.jpg',
                                 title: 'Inclined Bench Press',
@@ -248,20 +246,20 @@ class ActivityDetail extends StatelessWidget {
                                 minutes: 7,
                               ),
                               NextStep(
-                                image: 'assets/images/One Arm Pull Down.jpg',
+                                image: 'assets/images/one arm pull down.jpg',
                                 title: 'One Arm Pull Down',
                                 minutes: 7,
                               ),
                               NextStep(
-                                 image: 'assets/images/twist abs.jpg',
+                                image: 'assets/images/twist abs.jpg',
                                 title: 'Abdominal Twist',
-                               minutes: 7,
+                                minutes: 7,
                               ),
-                               NextStep(
-                                 image: 'assets/images/bicycle crunch.jpg',
+                              NextStep(
+                                image: 'assets/images/bicycle crunch.jpg',
                                 title: 'Bicycle Crunch',
-                               minutes: 7,
-                               ),
+                                minutes: 7,
+                              ),
                             ],
                           ],
                         ),

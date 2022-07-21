@@ -1,15 +1,15 @@
 import 'package:MauFitness/models/challengesAUpperBody.dart';
-import 'package:MauFitness/pages/challengeUpperdetailA.dart';
+import 'package:MauFitness/pages/challengeUpperDetailA.dart';
 import 'package:flutter/material.dart';
 import 'package:MauFitness/components/challengeseperator.dart';
 import 'package:MauFitness/components/textStyle.dart';
 
 class ChallengesAUpperSummary extends StatelessWidget {
-  final ChallengeAUpperBody challengesAUpperBody;
+  final ChallengeAUpperBody challengeaUpperBody;
   final bool horizontal;
-  ChallengesAUpperSummary(this.challengesAUpperBody, {this.horizontal = true});
+  ChallengesAUpperSummary(this.challengeaUpperBody, {this.horizontal = true});
 
-  ChallengesAUpperSummary.vertical(this.challengesAUpperBody)
+  ChallengesAUpperSummary.vertical(this.challengeaUpperBody)
       : horizontal = false;
 
   @override
@@ -23,8 +23,7 @@ class ChallengesAUpperSummary extends StatelessWidget {
       decoration: BoxDecoration(
         shape: BoxShape.circle,
         image: DecorationImage(
-            image: new AssetImage(challengesAUpperBody.image),
-            fit: BoxFit.fill),
+            image: new AssetImage(challengeaUpperBody.image), fit: BoxFit.fill),
       ),
       height: 110.0,
       width: 110.0,
@@ -33,7 +32,7 @@ class ChallengesAUpperSummary extends StatelessWidget {
     Widget _planetValue({String value}) {
       return Container(
         child: Row(mainAxisSize: MainAxisSize.min, children: <Widget>[
-          Text(challengesAUpperBody.time, style: Style.smallTextStyle),
+          Text(challengeaUpperBody.time, style: Style.smallTextStyle),
         ]),
       );
     }
@@ -47,9 +46,9 @@ class ChallengesAUpperSummary extends StatelessWidget {
             horizontal ? CrossAxisAlignment.start : CrossAxisAlignment.center,
         children: <Widget>[
           new Container(height: 4.0),
-          new Text(challengesAUpperBody.name, style: Style.titleTextStyle),
+          new Text(challengeaUpperBody.name, style: Style.titleTextStyle),
           new Container(height: 10.0),
-          new Text(challengesAUpperBody.work, style: Style.commonTextStyle),
+          new Text(challengeaUpperBody.work, style: Style.commonTextStyle),
           new Separator(),
           new Row(
             mainAxisAlignment: MainAxisAlignment.center,
@@ -57,7 +56,7 @@ class ChallengesAUpperSummary extends StatelessWidget {
               new Expanded(
                   flex: horizontal ? 1 : 0,
                   child: _planetValue(
-                    value: challengesAUpperBody.time,
+                    value: challengeaUpperBody.time,
                   )),
             ],
           ),
@@ -90,7 +89,7 @@ class ChallengesAUpperSummary extends StatelessWidget {
           ? () => Navigator.of(context).push(
                 new PageRouteBuilder(
                   pageBuilder: (_, __, ___) =>
-                      new ChallengedetailAUpper(challengesAUpperBody),
+                      new ChallengedetailAUpper(challengeaUpperBody),
                   transitionsBuilder:
                       (context, animation, secondaryAnimation, child) =>
                           new FadeTransition(opacity: animation, child: child),

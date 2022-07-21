@@ -1,16 +1,20 @@
-import 'package:MauFitness/models/challengesCUpperBody.dart';
-import 'package:MauFitness/pages/challengeUpperdetailC.dart';
+import 'package:MauFitness/pages/challengeUpperDetailC.dart';
+
 import 'package:flutter/material.dart';
+import 'package:MauFitness/models/challengesC.dart';
 import 'package:MauFitness/components/challengeseperator.dart';
+import 'package:MauFitness/pages/challengelowdetailC.dart';
 import 'package:MauFitness/components/textStyle.dart';
 
+import '../models/challengesCUpperBody.dart';
+
 class ChallengesCUpperSummary extends StatelessWidget {
-  final ChallengeCUpperBody challengesCUpperBody;
+  final ChallengeCUpperBody challengecUpperBody;
   final bool horizontal;
 
-  ChallengesCUpperSummary(this.challengesCUpperBody, {this.horizontal = true});
+  ChallengesCUpperSummary(this.challengecUpperBody, {this.horizontal = true});
 
-  ChallengesCUpperSummary.vertical(this.challengesCUpperBody)
+  ChallengesCUpperSummary.vertical(this.challengecUpperBody)
       : horizontal = false;
 
   @override
@@ -22,8 +26,7 @@ class ChallengesCUpperSummary extends StatelessWidget {
       decoration: BoxDecoration(
         shape: BoxShape.circle,
         image: DecorationImage(
-            image: new AssetImage(challengesCUpperBody.image),
-            fit: BoxFit.fill),
+            image: new AssetImage(challengecUpperBody.image), fit: BoxFit.fill),
       ),
       height: 110.0,
       width: 110.0,
@@ -32,7 +35,7 @@ class ChallengesCUpperSummary extends StatelessWidget {
     Widget _planetValue({String value}) {
       return new Container(
         child: new Row(mainAxisSize: MainAxisSize.min, children: <Widget>[
-          new Text(challengesCUpperBody.time, style: Style.smallTextStyle),
+          new Text(challengecUpperBody.time, style: Style.smallTextStyle),
         ]),
       );
     }
@@ -46,9 +49,9 @@ class ChallengesCUpperSummary extends StatelessWidget {
             horizontal ? CrossAxisAlignment.start : CrossAxisAlignment.center,
         children: <Widget>[
           new Container(height: 4.0),
-          new Text(challengesCUpperBody.name, style: Style.titleTextStyle),
+          new Text(challengecUpperBody.name, style: Style.titleTextStyle),
           new Container(height: 10.0),
-          new Text(challengesCUpperBody.work, style: Style.commonTextStyle),
+          new Text(challengecUpperBody.work, style: Style.commonTextStyle),
           new Separator(),
           new Row(
             mainAxisAlignment: MainAxisAlignment.center,
@@ -56,7 +59,7 @@ class ChallengesCUpperSummary extends StatelessWidget {
               new Expanded(
                   flex: horizontal ? 1 : 0,
                   child: _planetValue(
-                    value: challengesCUpperBody.time,
+                    value: challengecUpperBody.time,
                   )),
             ],
           ),
@@ -89,7 +92,7 @@ class ChallengesCUpperSummary extends StatelessWidget {
           ? () => Navigator.of(context).push(
                 new PageRouteBuilder(
                   pageBuilder: (_, __, ___) =>
-                      new ChallengedetailCUpper(challengesCUpperBody),
+                      new ChallengedetailCUpper(challengecUpperBody),
                   transitionsBuilder:
                       (context, animation, secondaryAnimation, child) =>
                           new FadeTransition(opacity: animation, child: child),

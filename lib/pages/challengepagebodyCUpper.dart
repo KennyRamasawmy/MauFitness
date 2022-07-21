@@ -1,6 +1,8 @@
 import 'package:MauFitness/models/challengesCUpperBody.dart';
 import 'package:MauFitness/pages/challenges_rowC_Upper.dart';
 import 'package:flutter/material.dart';
+import 'package:MauFitness/models/challengesC.dart';
+import 'package:MauFitness/pages/challenges_rowC.dart';
 
 class ChallengesCCUpper extends StatelessWidget {
   @override

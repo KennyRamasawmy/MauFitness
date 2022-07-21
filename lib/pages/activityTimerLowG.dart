@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
+import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 
 class ActivityLowG extends StatefulWidget {
   const ActivityLowG({Key key}) : super(key: key);
@@ -9,14 +10,51 @@ class ActivityLowG extends StatefulWidget {
 }
 
 class _ActivityLowGState extends State<ActivityLowG> {
-  int seconds = 420;
+  int seconds = 120;
   bool isTimerRunning = false;
   bool isResume = true;
   bool isEnd = false;
   Timer timer;
   int count = 0;
+  bool _isPlayerReady = false;
+  YoutubePlayerController _controller;
+  TextEditingController _idController;
+  PlayerState _playerState;
+  TextEditingController _seekToController;
+  YoutubeMetaData _videoMetaData;
+  
+   @override
+  void initState() {
+    super.initState();
+    _controller = YoutubePlayerController(
+      initialVideoId: videoID,
+      flags: const YoutubePlayerFlags(
+        mute: false,
+        autoPlay: false,
+        disableDragSeek: true,
+        loop: false,
+        isLive: false,
+        forceHD: false,
+        enableCaption: true,
+      ),
+    )..addListener(listener);
+    _idController = TextEditingController();
+    _seekToController = TextEditingController();
+    _videoMetaData = const YoutubeMetaData();
+    _playerState = PlayerState.unknown;
+  }
+  void listener() {
+    if (_isPlayerReady && mounted && !_controller.value.isFullScreen) {
+      setState(() {
+        _playerState = _controller.value.playerState;
+        _videoMetaData = _controller.metadata;
+      });
+    }
+  }
+
 
   void startTimer() {
+    _controller.play();
     timer = Timer.periodic(const Duration(milliseconds: 1000), (_) {
       if (seconds > 0) {
         setState(() {
@@ -31,42 +69,58 @@ class _ActivityLowGState extends State<ActivityLowG> {
     });
   }
 
-  void cancelTimer() {
+  cancelTimer() {
+    _controller.seekTo(Duration.zero);
+    _controller.pause();
+    setState(() {});
     timer?.cancel();
     setState(() {
-      seconds = 420;
+      seconds = 120;
       isTimerRunning = false;
       isEnd = false;
     });
   }
 
-  String image = 'https://media.giphy.com/media/7NIUcG6xYjInPVPwNz/giphy.gif';
-
+  static String videoID = 'UItWltVZZmE';
+  
   void nextExercise() {
     if (count == 0) {
-      image = 'https://media.giphy.com/media/SJWtWnRFsTiNVSECVP/giphy.gif';
+      videoID = 'UItWltVZZmE'; //change video id
+      YoutubePlayer(
+                controller: _controller,
+                liveUIColor: Colors.amber,
+                showVideoProgressIndicator: true,
+              );
       startTimer();
       cancelTimer();
       count++;
     } else if (count == 1) {
-      image = 'https://c.tenor.com/6e9R6ktpmjQAAAAC/single-leg-butt-bridge.gif';
+      videoID = 'UItWltVZZmE'; //change video id
+      YoutubePlayer(
+                controller: _controller,
+                liveUIColor: Colors.amber,
+                showVideoProgressIndicator: true,
+              );
       startTimer();
       cancelTimer();
       count++;
     } else if (count == 2) {
-      image =
-          'https://program.rapidloss.com.au/wp-content/uploads/female-bicycle-crunch.gif';
-      startTimer();
-      cancelTimer();
-      count++;
-    } else if (count == 3) {
-      image =
-          'https://i0.wp.com/theswimreport.com//wp-content/uploads/2015/06/FireHydrant-Small.gif?resize=640%2C360&ssl=1';
+      videoID = 'UItWltVZZmE'; //change video id
+      YoutubePlayer(
+                controller: _controller,
+                liveUIColor: Colors.amber,
+                showVideoProgressIndicator: true,
+              );
       startTimer();
       cancelTimer();
       count++;
     } else {
-      image = 'https://media.giphy.com/media/BpDYhIoJ4RAi07rX2p/giphy.gif';
+      videoID = 'UItWltVZZmE'; //change video id
+      YoutubePlayer(
+                controller: _controller,
+                liveUIColor: Colors.amber,
+                showVideoProgressIndicator: true,
+              );
       startTimer();
       cancelTimer();
       count++;
@@ -77,12 +131,15 @@ class _ActivityLowGState extends State<ActivityLowG> {
   Widget build(BuildContext context) {
     return Container(
       child: Scaffold(
-        //backgroundColor: Colors.transparent,
+        //backgroundColor: Colors.red,
 
         body: SingleChildScrollView(
+          child: Card(
+            color: Color.fromRGBO(232, 234, 246, 1), //colour big container
           child: Column(
             // mainAxisAlignment: MainAxisAlignment.center,
             children: [
+              Container(),
               Positioned(
                 child: GestureDetector(
                   child: Container(
@@ -106,47 +163,64 @@ class _ActivityLowGState extends State<ActivityLowG> {
                   },
                 ),
               ),
-              // Header('Move your body'),
+              
+              Padding(
+                padding: const EdgeInsets.only(top: 5.0, bottom: 5.0),
+              ),
+
               Container(
-                width: 350.0,
-                height: 300.0,
-                margin: EdgeInsets.only(
-                  top: 10.0,
-                ),
-                decoration: BoxDecoration(
-                  color: Color.fromRGBO(232, 242, 248, 1.0),
-                  borderRadius: BorderRadius.circular(20.0),
-                ),
-                child: Center(
-                  child: Container(
-                    // width: MediaQuery.of(context).size.width,
-                    width: 300.0,
-                    height: 300.0,
-                    // height: BoxFit.fitHeight,
-                    child: Image.network(this.image),
+                padding: EdgeInsets.fromLTRB(10.0, 10.0, 10.0, 10.0),
+                decoration:
+                      BoxDecoration(
+                        color: Color.fromARGB(255, 136, 153, 209), //youtube container colour
+                        border: Border.all(
+                          color: Color.fromARGB(255, 136, 153, 209), //color of border
+                        ),
+                        borderRadius: BorderRadius.only(
+                          topRight: Radius.circular(20.0),
+                          bottomRight: Radius.circular(20.0),
+                          topLeft: Radius.circular(20.0),
+                          bottomLeft: Radius.circular(20.0)),
+                      ), 
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(15),
+                  child: YoutubePlayer(
+                    controller: _controller,
+                  liveUIColor: Colors.amber,
+                  showVideoProgressIndicator: true,
+                    onReady: () {
+                      _isPlayerReady = true;
+                    },
                   ),
                 ),
               ),
+              
               Padding(
-                padding: EdgeInsets.fromLTRB(400.0, 50.0, 400.0, 5.0),
+                padding: const EdgeInsets.only(top: 25.0, bottom: 25.0),
               ),
-              SizedBox(
-                height: 250,
-                width: 250,
+            
+              Container(
+                // box around circle
+                // decoration:
+                //       BoxDecoration(color: Color.fromRGBO(232, 234, 246, 1)),
+                //       padding: EdgeInsets.fromLTRB(10.0, 10.0, 10.0, 10.0),
+                height: 200,
+                width: 200,
                 child: Stack(
                   fit: StackFit.expand,
                   children: [
                     CircularProgressIndicator(
-                      value: seconds / 420,
-                      valueColor: const AlwaysStoppedAnimation(Colors.white),
+                      value: seconds / 120,
+                      valueColor: const AlwaysStoppedAnimation(
+                          Color.fromARGB(255, 136, 153, 209)),
                       strokeWidth: 12,
-                      backgroundColor: Color.fromARGB(255, 196, 156, 238),
+                      backgroundColor: Color.fromARGB(255, 241, 137, 137),
                     ),
                     Center(
                       child: isEnd
                           ? Icon(
                               Icons.check,
-                              color: Colors.greenAccent,
+                              color: Colors.lightGreenAccent,
                               size: 134,
                             )
                           : Text(
@@ -161,10 +235,15 @@ class _ActivityLowGState extends State<ActivityLowG> {
                   ],
                 ),
               ),
-              const SizedBox(
-                height: 40,
+              
+              Padding(
+                padding: const EdgeInsets.only(top: 20.0, bottom: 20.0),
               ),
-              if (isEnd && count < 5) ...[
+              
+              const SizedBox(
+                height: 45,
+              ),
+              if (isEnd && count < 4) ...[
                 ElevatedButton(
                   style: ElevatedButton.styleFrom(
                       primary: Colors.white,
@@ -172,6 +251,7 @@ class _ActivityLowGState extends State<ActivityLowG> {
                           borderRadius: new BorderRadius.circular(20.0))),
                   onPressed: () {
                     nextExercise();
+                    _controller.play();
                     setState(() {
                       isTimerRunning = true;
                     });
@@ -179,6 +259,7 @@ class _ActivityLowGState extends State<ActivityLowG> {
                   child: const Padding(
                     padding: EdgeInsets.all(15.0),
                     child: Text(
+                      'Push harder than yesterday if you want a different tomorrow! \n'
                       'Next',
                       style: TextStyle(
                         color: Colors.black87,
@@ -188,12 +269,23 @@ class _ActivityLowGState extends State<ActivityLowG> {
                     ),
                   ),
                 ),
+                Padding(
+                padding: const EdgeInsets.only(top: 10.0, bottom: 10.0),
+              ),
               ],
 
+              
               isTimerRunning
                   ? Row(
+                    
+                    
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      
                       children: [
+                        
+                        //put all inside container and add boxdecoration
+              
+                        
                         ElevatedButton(
                           style: ElevatedButton.styleFrom(
                               primary: Colors.white,
@@ -202,6 +294,7 @@ class _ActivityLowGState extends State<ActivityLowG> {
                                       new BorderRadius.circular(20.0))),
                           onPressed: () {
                             if (isResume) {
+                              _controller.pause();
                               timer?.cancel();
                               setState(() {
                                 isResume = false;
@@ -213,8 +306,8 @@ class _ActivityLowGState extends State<ActivityLowG> {
                               });
                             }
                           },
-                          child: Padding(
-                            padding: const EdgeInsets.all(8.0),
+                          child: Container(
+                            margin: const EdgeInsets.all(8.0),
                             child: Text(
                               isResume ? 'Pause' : 'Resume',
                               style: const TextStyle(
@@ -225,6 +318,7 @@ class _ActivityLowGState extends State<ActivityLowG> {
                             ),
                           ),
                         ),
+
                         ElevatedButton(
                           style: ElevatedButton.styleFrom(
                               primary: Colors.white,
@@ -232,8 +326,9 @@ class _ActivityLowGState extends State<ActivityLowG> {
                                   borderRadius:
                                       new BorderRadius.circular(20.0))),
                           onPressed: cancelTimer,
-                          child: Padding(
-                            padding: const EdgeInsets.all(8.0),
+
+                          child: Container(
+                            margin: const EdgeInsets.all(8.0),
                             child: Text(
                               isEnd ? 'Reset' : 'Cancel',
                               style: const TextStyle(
@@ -243,9 +338,12 @@ class _ActivityLowGState extends State<ActivityLowG> {
                               ),
                             ),
                           ),
+
+
                         ),
                       ],
                     )
+
                   : ElevatedButton(
                       style: ElevatedButton.styleFrom(
                           primary: Colors.white,
@@ -253,7 +351,7 @@ class _ActivityLowGState extends State<ActivityLowG> {
                               borderRadius: new BorderRadius.circular(20.0))),
                       onPressed: startTimer,
                       child: const Padding(
-                        padding: EdgeInsets.all(15.0),
+                        padding: EdgeInsets.all(10.0),
                         child: Text(
                           'Start Timer',
                           style: TextStyle(
@@ -264,8 +362,13 @@ class _ActivityLowGState extends State<ActivityLowG> {
                         ),
                       ),
                     ),
+
+                  Padding(
+                    padding: const EdgeInsets.only(top: 25.0, bottom: 40.0),
+                  ),
             ],
           ),
+        ),
         ),
       ),
     );

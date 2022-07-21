@@ -9,7 +9,7 @@ class SearchBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.symmetric(vertical: 20),
+      margin: EdgeInsets.symmetric(vertical: 5),
       padding: EdgeInsets.symmetric(horizontal: 8, vertical: 5),
       decoration: BoxDecoration(
         color: Colors.transparent,
@@ -17,8 +17,8 @@ class SearchBar extends StatelessWidget {
       ),
       child: TextField(
         decoration: InputDecoration(
-          hintText: "Search",
-          icon: SvgPicture.asset("assets/icons/search.svg"),
+          //hintText: "Search",
+          //icon: SvgPicture.asset("assets/icons/search.svg"),
           border: InputBorder.none,
         ),
       ),

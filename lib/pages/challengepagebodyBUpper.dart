@@ -2,6 +2,8 @@ import 'package:MauFitness/models/challengesBUpperBody.dart';
 import 'package:MauFitness/pages/challenges_rowB_Upper.dart';
 import 'package:flutter/material.dart';
 
+import 'package:MauFitness/pages/challenges_rowB.dart';
+
 class ChallengesBBUpper extends StatelessWidget {
   @override
   Widget build(BuildContext context) {

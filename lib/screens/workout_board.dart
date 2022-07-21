@@ -19,7 +19,7 @@ class WorkoutBoard extends StatelessWidget {
           Container(
             height: size.height,
             decoration: BoxDecoration(
-              color: Color.fromARGB(255, 180, 170, 228),
+              color: Color.fromARGB(255, 171, 170, 216),
             ),
           ),
           SafeArea(

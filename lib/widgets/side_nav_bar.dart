@@ -15,8 +15,8 @@ import 'package:alan_voice/alan_voice.dart';
   if (await canLaunch(_url)) {
     return await launch(
       _url,
-      //forceWebView: true,
-      //enableJavaScript: true
+      forceWebView: true,
+      enableJavaScript: true
       );
   } else {
     throw 'Could not launch $_url';

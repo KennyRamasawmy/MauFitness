@@ -6,7 +6,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:MauFitness/screens/Cardio.dart';
 import 'package:MauFitness/screens/Lower_body.dart';
 import 'package:MauFitness/screens/Upper_body.dart';
-import 'package:MauFitness/widgets/workoutcategory_card.dart';
+import 'package:MauFitness/widgets/nutritioncategory_card.dart';
 import 'package:MauFitness/widgets/search_bar.dart';
 import 'package:MauFitness/widgets/side_nav_bar.dart';
 
@@ -22,7 +22,7 @@ class menu_nutrition extends StatelessWidget {
           Container(
             height: size.height,
             decoration: BoxDecoration(
-              color: Color.fromARGB(255, 144, 177, 138),
+              color: Color.fromARGB(255, 255, 255, 255),
             ),
           ),
           SafeArea(
@@ -37,7 +37,7 @@ class menu_nutrition extends StatelessWidget {
                       width: 70.0,
                       height: 60.0,
                       child: Image.asset(
-                        "assets/images/hamburger.png",
+                        "assets/images/hamburgergreen.png",
                         width: size.width,
                       ),
                     ),
@@ -52,7 +52,7 @@ class menu_nutrition extends StatelessWidget {
                   Text(
                     "For a Happy and Healthy Life",
                     style: TextStyle(
-                        color: Color.fromARGB(255, 58, 57, 59),
+                        color: Color.fromARGB(255, 45, 114, 103),
                         fontSize: 25,
                         fontWeight: FontWeight.bold),
                   ),
@@ -69,7 +69,7 @@ class menu_nutrition extends StatelessWidget {
                       children: <Widget>[
                         CategoryCard(
                           title: "Healthy Meals",
-                          image: "assets/images/upperbody1.png",
+                          image: "assets/images/healthymeals.png",
                           press: () {
                             Navigator.push(
                               context,
@@ -81,7 +81,7 @@ class menu_nutrition extends StatelessWidget {
                         ),
                         CategoryCard(
                           title: "Nutrition Tips",
-                          image: "assets/images/cardio1.png",
+                          image: "assets/images/healthytips.png",
                           press: () {
                             Navigator.push(
                               context,

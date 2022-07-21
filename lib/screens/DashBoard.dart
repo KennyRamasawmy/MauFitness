@@ -91,16 +91,16 @@ class _HomeScreenState extends State<HomeScreen> {
                         .headline4
                         .copyWith(fontWeight: FontWeight.w900),
                   ),
-                  //SearchBar(),
-                  IconButton(
-                    icon: const Icon(Icons.search),
-                    onPressed: () {
-                      showSearch(
-                        context: context,
-                        delegate: MySearchDelegate(),
-                      );
-                    },
-                  ),
+                  SearchBar(),
+                  // IconButton(
+                  //   icon: const Icon(Icons.search),
+                  //   onPressed: () {
+                  //     showSearch(
+                  //       context: context,
+                  //       delegate: MySearchDelegate(),
+                  //     );
+                  //   },
+                  // ),
                   Expanded(
                     child: GridView.count(
                       crossAxisCount: 1,

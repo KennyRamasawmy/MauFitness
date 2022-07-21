@@ -1,16 +1,19 @@
 import 'package:MauFitness/models/challengesBUpperBody.dart';
-import 'package:MauFitness/pages/challengeUpperdetailB.dart';
+import 'package:MauFitness/pages/challengeUpperDetailB.dart';
+
 import 'package:flutter/material.dart';
+
 import 'package:MauFitness/components/challengeseperator.dart';
+
 import 'package:MauFitness/components/textStyle.dart';
 
 class ChallengesBUpperSummary extends StatelessWidget {
-  final ChallengeBUpperBody challengesBUpperBody;
+  final ChallengeBUpperBody challengebUpperBody;
   final bool horizontal;
 
-  ChallengesBUpperSummary(this.challengesBUpperBody, {this.horizontal = true});
+  ChallengesBUpperSummary(this.challengebUpperBody, {this.horizontal = true});
 
-  ChallengesBUpperSummary.vertical(this.challengesBUpperBody)
+  ChallengesBUpperSummary.vertical(this.challengebUpperBody)
       : horizontal = false;
 
   @override
@@ -24,8 +27,7 @@ class ChallengesBUpperSummary extends StatelessWidget {
       decoration: BoxDecoration(
         shape: BoxShape.circle,
         image: DecorationImage(
-            image: new AssetImage(challengesBUpperBody.image),
-            fit: BoxFit.fill),
+            image: new AssetImage(challengebUpperBody.image), fit: BoxFit.fill),
       ),
       height: 110.0,
       width: 110.0,
@@ -34,7 +36,7 @@ class ChallengesBUpperSummary extends StatelessWidget {
     Widget _planetValue({String value}) {
       return new Container(
         child: new Row(mainAxisSize: MainAxisSize.min, children: <Widget>[
-          new Text(challengesBUpperBody.time, style: Style.smallTextStyle),
+          new Text(challengebUpperBody.time, style: Style.smallTextStyle),
         ]),
       );
     }
@@ -48,9 +50,9 @@ class ChallengesBUpperSummary extends StatelessWidget {
             horizontal ? CrossAxisAlignment.start : CrossAxisAlignment.center,
         children: <Widget>[
           new Container(height: 4.0),
-          new Text(challengesBUpperBody.name, style: Style.titleTextStyle),
+          new Text(challengebUpperBody.name, style: Style.titleTextStyle),
           new Container(height: 10.0),
-          new Text(challengesBUpperBody.work, style: Style.commonTextStyle),
+          new Text(challengebUpperBody.work, style: Style.commonTextStyle),
           new Separator(),
           new Row(
             mainAxisAlignment: MainAxisAlignment.center,
@@ -58,7 +60,7 @@ class ChallengesBUpperSummary extends StatelessWidget {
               new Expanded(
                   flex: horizontal ? 1 : 0,
                   child: _planetValue(
-                    value: challengesBUpperBody.time,
+                    value: challengebUpperBody.time,
                   )),
             ],
           ),
@@ -91,7 +93,7 @@ class ChallengesBUpperSummary extends StatelessWidget {
           ? () => Navigator.of(context).push(
                 new PageRouteBuilder(
                   pageBuilder: (_, __, ___) =>
-                      new ChallengedetailBUpper(challengesBUpperBody),
+                      new ChallengedetailBUpper(challengebUpperBody),
                   transitionsBuilder:
                       (context, animation, secondaryAnimation, child) =>
                           new FadeTransition(opacity: animation, child: child),

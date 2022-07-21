@@ -1,12 +1,16 @@
 import 'package:MauFitness/models/challengesAUpperBody.dart';
 import 'package:MauFitness/pages/challenges_rowA_Upper.dart';
+import 'package:MauFitness/timer/ScreenlowA.dart';
+import 'package:MauFitness/timer/ScreenupA.dart';
 import 'package:flutter/material.dart';
+import 'package:MauFitness/models/challengesA.dart';
+import 'package:MauFitness/pages/challenges_rowA.dart';
 import 'package:MauFitness/components/challengeseperator.dart';
 import 'package:MauFitness/components/textStyle.dart';
 
 class ChallengedetailAUpper extends StatelessWidget {
-  final ChallengeAUpperBody challengesAUpperBody;
-  ChallengedetailAUpper(this.challengesAUpperBody);
+  final ChallengeAUpperBody challengeaUpperBody;
+  ChallengedetailAUpper(this.challengeaUpperBody);
 
   @override
   Widget build(BuildContext context) {
@@ -18,7 +22,7 @@ class ChallengedetailAUpper extends StatelessWidget {
           children: <Widget>[
             _getBackground(),
             _getGradient(),
-            _getContent(),
+            _getContent(context),
             _getToolbar(context),
           ],
         ),
@@ -29,7 +33,7 @@ class ChallengedetailAUpper extends StatelessWidget {
   Container _getBackground() {
     return new Container(
       child: new Image.network(
-        challengesAUpperBody.picture,
+        challengeaUpperBody.picture,
         fit: BoxFit.cover,
         height: 300.0,
       ),
@@ -56,7 +60,7 @@ class ChallengedetailAUpper extends StatelessWidget {
     );
   }
 
-  Container _getContent() {
+  Container _getContent(BuildContext context) {
     final _overviewTitle = "\u{26A0} Follow the steps".toUpperCase();
     return new Container(
       child: new ListView(
@@ -68,7 +72,7 @@ class ChallengedetailAUpper extends StatelessWidget {
             ),
           ),
           new ChallengesAUpperSummary(
-            challengesAUpperBody,
+            challengeaUpperBody,
             //horizontal: false,
           ),
           new Container(
@@ -85,8 +89,32 @@ class ChallengedetailAUpper extends StatelessWidget {
                   style: Style.headerTextStyle1,
                 ),
                 new Separator(),
-                new Text(challengesAUpperBody.description,
+                new Text(challengeaUpperBody.description,
                     style: Style.commonTextStyle1),
+                Padding(
+                  padding: EdgeInsets.only(left: 60.0, right: 40.0, top: 20.0),
+                  child: ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                        primary: Color.fromARGB(255, 162, 196, 239),
+                        shape: new RoundedRectangleBorder(
+                            borderRadius: new BorderRadius.circular(20.0))),
+                    onPressed: () {
+                      Navigator.of(context).push(MaterialPageRoute(
+                          builder: (context) => TimeupA(challengeaUpperBody)));
+                    },
+                    child: const Padding(
+                      padding: EdgeInsets.all(10.0),
+                      child: Text(
+                        'Start Timer',
+                        style: TextStyle(
+                          color: Colors.black87,
+                          fontSize: 24,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
               ],
             ),
           ),

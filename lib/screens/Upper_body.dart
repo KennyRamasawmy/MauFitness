@@ -6,6 +6,7 @@ import 'package:MauFitness/components/image_card_with_internal.dart';
 //import 'package:meditation_app/components/user_photo.dart';
 import 'package:MauFitness/models/exercise.dart';
 import 'package:MauFitness/pages/activity_detaillow.dart';
+import 'package:MauFitness/pages/activity_detaillupper.dart';
 import 'package:MauFitness/pages/challengepagebodyAUpper.dart';
 import 'package:MauFitness/pages/challengepagebodyBUpper.dart';
 import 'package:MauFitness/pages/challengepagebodyCUpper.dart';
@@ -16,19 +17,19 @@ import 'package:flutter/material.dart';
 class UpperBody extends StatelessWidget {
   final List<Exercise> exercises = [
     Exercise(
-      image: 'assets/images/train level 1.png',
+      image: 'assets/images/benchpress.jpg',
       title: 'Beginner',
       time: '\u{23F3} 10 minutes',
       difficult: 'Think',
     ),
     Exercise(
-      image: 'assets/images/level 2 train.png',
+      image: 'assets/images/shoulderpress1.jpg',
       title: 'Intermediate',
       time: '\u{23F3} 25 minutes',
       difficult: 'Look',
     ),
     Exercise(
-      image: 'assets/images/level 3 train.png',
+      image: 'assets/images/cablechess.jpg',
       title: 'Pro',
       time: '\u{23F3} 42 minutes',
       difficult: 'Feel',
@@ -51,7 +52,7 @@ class UpperBody extends StatelessWidget {
               context,
               MaterialPageRoute(
                 builder: (_) {
-                  return ActivityDetail(
+                  return ActivityDetailU(
                     exercise: exercise,
                     tag: 'imageHeader$count',
                   );
@@ -84,7 +85,7 @@ class UpperBody extends StatelessWidget {
                 ),
                 //MainCardPrograms(), // MainCard
                 Text(
-                  'Push harder than yesterday if you want a different tomorrow! \u{270A}',
+                  'Each Reps Counts!',
                   textAlign: TextAlign.center,
                   style: TextStyle(
                       fontSize: 18.0,
@@ -117,7 +118,7 @@ class UpperBody extends StatelessWidget {
                 ),
 
                 Padding(
-                padding: const EdgeInsets.only(top: 10.0, bottom: 10.0),
+                  padding: const EdgeInsets.only(top: 10.0, bottom: 10.0),
                 ),
 
                 GestureDetector(
@@ -137,7 +138,7 @@ class UpperBody extends StatelessWidget {
                 ),
 
                 Padding(
-                padding: const EdgeInsets.only(top: 10.0, bottom: 10.0),
+                  padding: const EdgeInsets.only(top: 10.0, bottom: 10.0),
                 ),
 
                 GestureDetector(
@@ -157,9 +158,8 @@ class UpperBody extends StatelessWidget {
                 ),
 
                 Padding(
-                padding: const EdgeInsets.only(top: 10.0, bottom: 10.0),
+                  padding: const EdgeInsets.only(top: 10.0, bottom: 10.0),
                 ),
-
               ],
             ),
           ),
