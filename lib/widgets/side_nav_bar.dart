@@ -1,3 +1,4 @@
+import 'package:MauFitness/main.dart';
 import 'package:MauFitness/meditateHome.dart';
 import 'package:MauFitness/screens/Cardio.dart';
 import 'package:MauFitness/screens/Lower_body.dart';
@@ -293,24 +294,11 @@ class NavDrawer extends StatelessWidget {
                 ),
 
                 ListTile(
-                      title: Text('Help'),
-                      leading: Icon(Icons.help),
-                      onTap: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(builder: (context) {
-                              return UpperBody();
-                            }),
-                          );
-                      },
-                    ),
-                  new Container(
-                  height: 55,
-                  ),
-                ListTile(
                       title: Text('Log Out'),
                       leading: Icon(Icons.logout),
-                      onTap: () {},
+                      onTap: () {
+                        signOut();
+                      },
                     ),
                 ],
                 )
