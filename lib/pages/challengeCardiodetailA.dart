@@ -14,16 +14,6 @@ class ChallengedetailACardio extends StatelessWidget {
   FlutterTts flutterTts = FlutterTts();
   ShakeDetector detector;
 
-  @override
-  void initState() {
-    //super.initState();
-
-     detector = ShakeDetector.autoStart(
-      onPhoneShake: () {
-        flutterTts.speak(challengeaCardio.description);
-      }
-    );
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -142,15 +132,16 @@ class ChallengedetailACardio extends StatelessWidget {
       print(await flutterTts.getVoices);
       await flutterTts.speak(challengeaCardio.description);
     }
-
-    return Container(
-        alignment: Alignment.center,
-        padding: EdgeInsets.all(10.0),
-        child: ElevatedButton(
-          child: Text("Voice"),
-          onPressed: () => _speak(),
-        ));
+    ShakeDetector detector123 = ShakeDetector.autoStart(
+      onPhoneShake: () async{
+        _speak();
+    }
+    );
+    return Container();   
   }
+
+
+
 
   Container _getToolbar(BuildContext context) {
     return new Container(

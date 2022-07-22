@@ -4,10 +4,15 @@ import 'package:MauFitness/models/challengesCCardio.dart';
 import 'package:MauFitness/components/challengeseperator.dart';
 import 'package:MauFitness/components/textStyle.dart';
 import 'package:MauFitness/pages/challenges_rowC_Cardio.dart';
+import 'package:flutter_tts/flutter_tts.dart';
+import 'package:shake/shake.dart';
 
 class ChallengedetailCCardio extends StatelessWidget {
   final ChallengeCCardio challengecCardio;
   ChallengedetailCCardio(this.challengecCardio);
+
+  FlutterTts flutterTts = FlutterTts();
+  ShakeDetector detector;
 
   @override
   Widget build(BuildContext context) {
@@ -20,6 +25,7 @@ class ChallengedetailCCardio extends StatelessWidget {
             _getBackground(),
             _getGradient(),
             _getContent(context),
+            _getTextToSPeech(context),
             _getToolbar(context),
           ],
         ),
@@ -119,7 +125,21 @@ class ChallengedetailCCardio extends StatelessWidget {
       ),
     );
   }
-
+  Container _getTextToSPeech(BuildContext context) {
+        _speak() async {
+          print(await flutterTts.getLanguages);
+          await flutterTts.setLanguage("en-US");
+          await flutterTts.setPitch(1);
+          print(await flutterTts.getVoices);
+          await flutterTts.speak(challengecCardio.description);
+        }
+        ShakeDetector detector123 = ShakeDetector.autoStart(
+          onPhoneShake: () async{
+            _speak();
+        }
+        );
+        return Container();   
+      }
   Container _getToolbar(BuildContext context) {
     return new Container(
       margin: new EdgeInsets.only(top: MediaQuery.of(context).padding.top),

@@ -1,5 +1,6 @@
 import 'package:MauFitness/models/challengesAUpperBody.dart';
 import 'package:MauFitness/models/challengesBUpperBody.dart';
+import 'package:MauFitness/models/challengesCUpperBody.dart';
 import 'package:MauFitness/pages/challenges_rowA_Upper.dart';
 import 'package:MauFitness/pages/challenges_rowB_Upper.dart';
 import 'package:MauFitness/timer/ScreenlowA.dart';
@@ -10,10 +11,15 @@ import 'package:MauFitness/models/challengesA.dart';
 import 'package:MauFitness/pages/challenges_rowA.dart';
 import 'package:MauFitness/components/challengeseperator.dart';
 import 'package:MauFitness/components/textStyle.dart';
+import 'package:flutter_tts/flutter_tts.dart';
+import 'package:shake/shake.dart';
 
 class ChallengedetailBUpper extends StatelessWidget {
   final ChallengeBUpperBody challengebUpperBody;
   ChallengedetailBUpper(this.challengebUpperBody);
+
+  FlutterTts flutterTts = FlutterTts();
+  ShakeDetector detector;
 
   @override
   Widget build(BuildContext context) {
@@ -26,6 +32,7 @@ class ChallengedetailBUpper extends StatelessWidget {
             _getBackground(),
             _getGradient(),
             _getContent(context),
+            _getTextToSPeech(context),
             _getToolbar(context),
           ],
         ),
@@ -126,6 +133,21 @@ class ChallengedetailBUpper extends StatelessWidget {
     );
   }
 
+  Container _getTextToSPeech(BuildContext context) {
+        _speak() async {
+          print(await flutterTts.getLanguages);
+          await flutterTts.setLanguage("en-US");
+          await flutterTts.setPitch(1);
+          print(await flutterTts.getVoices);
+          await flutterTts.speak(challengebUpperBody.description);
+        }
+        ShakeDetector detector123 = ShakeDetector.autoStart(
+          onPhoneShake: () async{
+            _speak();
+        }
+        );
+        return Container();   
+      }
   Container _getToolbar(BuildContext context) {
     return new Container(
       margin: new EdgeInsets.only(top: MediaQuery.of(context).padding.top),
