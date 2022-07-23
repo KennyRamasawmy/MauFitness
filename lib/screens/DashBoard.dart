@@ -1,5 +1,6 @@
 import 'package:MauFitness/cards_design.dart';
 import 'package:MauFitness/screens/Menu_Nutrition.dart';
+import 'package:MauFitness/screens/speechscreen.dart';
 import 'package:MauFitness/screens/workout_board.dart';
 import 'package:flutter/material.dart';
 import 'package:MauFitness/screens/Nutrition.dart';
@@ -90,6 +91,22 @@ class _HomeScreenState extends State<HomeScreen> {
                         .textTheme
                         .headline4
                         .copyWith(fontWeight: FontWeight.w900),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(left: 200.0),
+                    child: Text("Tap bulb for tips"),
+                  ),
+                  IconButton(
+                    padding: (const EdgeInsets.only(left: 240.0, bottom: 0.0)),
+                    icon: const Icon(Icons.tips_and_updates_outlined),
+                    onPressed: () {
+                      Navigator.push(
+                        context, 
+                        MaterialPageRoute(builder: (context) {
+                          return SpeechScreen();
+                        }),
+                      );
+                    },
                   ),
                   SearchBar(),
                   // IconButton(
