@@ -30,7 +30,7 @@ class SplashScreen extends StatelessWidget {
           onDone: () => goToHome(context),
           showSkipButton: true,
           skip: Text('Skip', style: TextStyle(fontSize: 18,fontWeight: FontWeight.w600)),
-          //onSkip: () => goToHome(context),
+          onSkip: () => goToHome(context),
           next: Icon(Icons.arrow_forward),
           dotsDecorator: getDotDecoration(),
           onChange: (index) => print('Page $index selected'),
@@ -50,6 +50,7 @@ class SplashScreen extends StatelessWidget {
           return WelcomeScreen();
         }),
       );
+
 
   Widget buildImage(String path) =>
 
