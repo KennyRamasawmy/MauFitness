@@ -24,7 +24,7 @@ class _HomeScreenState extends State<HomeScreen> {
          buttonAlign: AlanVoice.BUTTON_ALIGN_LEFT);
 
      AlanVoice.onCommand.add((command) => _handleCommand(command.data));
-  }
+   }
 
   _handleCommand(Map<String, dynamic> command) {
     switch (command["command"]) {
@@ -92,22 +92,22 @@ class _HomeScreenState extends State<HomeScreen> {
                         .headline4
                         .copyWith(fontWeight: FontWeight.w900),
                   ),
-                  Padding(
-                    padding: const EdgeInsets.only(left: 200.0),
-                    child: Text("Tap bulb for tips"),
-                  ),
-                  IconButton(
-                    padding: (const EdgeInsets.only(left: 240.0, bottom: 0.0)),
-                    icon: const Icon(Icons.tips_and_updates_outlined),
-                    onPressed: () {
-                      Navigator.push(
-                        context, 
-                        MaterialPageRoute(builder: (context) {
-                          return SpeechScreen();
-                        }),
-                      );
-                    },
-                  ),
+                  // Padding(
+                  //   padding: const EdgeInsets.only(left: 200.0),
+                  //   child: Text("Tap bulb for tips"),
+                  // ),
+                  // IconButton(
+                  //   padding: (const EdgeInsets.only(left: 240.0, bottom: 0.0)),
+                  //   icon: const Icon(Icons.tips_and_updates_outlined),
+                  //   onPressed: () {
+                  //     Navigator.push(
+                  //       context, 
+                  //       MaterialPageRoute(builder: (context) {
+                  //         return SpeechScreen();
+                  //       }),
+                  //     );
+                  //   },
+                  // ),
                   SearchBar(),
                   // IconButton(
                   //   icon: const Icon(Icons.search),
