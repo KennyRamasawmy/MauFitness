@@ -58,14 +58,14 @@ class menu_nutrition extends StatelessWidget {
                   ),
                   //SearchBar(),
                   new Container(
-                    height: 100,
+                    height: 110,
                   ),
                   Expanded(
                     child: GridView.count(
                       crossAxisCount: 1,
-                      childAspectRatio: 2.2,
+                      childAspectRatio: 2.3,
                       crossAxisSpacing: 20,
-                      mainAxisSpacing: 100,
+                      mainAxisSpacing: 130,
                       children: <Widget>[
                         CategoryCard(
                           title: "Healthy Meals",
